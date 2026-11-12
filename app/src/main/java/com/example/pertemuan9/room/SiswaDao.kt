@@ -6,11 +6,11 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
-
 @Dao
 interface SiswaDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun  insert(siswa: Siswa)
-    @Query(value = "SELECT*from tblSiswa ORDER BY name ASC")
-    fun  getAllSiswa(): Flow<List<Siswa>>
+    suspend fun insert(siswa: Siswa)
+
+    @Query("SELECT * FROM tblSiswa ORDER BY nama ASC")
+    fun getAllSiswa(): Flow<List<Siswa>>
 }
